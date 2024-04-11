@@ -17,15 +17,33 @@
 set -e
 set -x
 
+
+## New: Install pyenv 
+## Following steps at https://www.dedicatedcore.com/blog/install-pyenv-ubuntu/
+if ! test -f pyenv_test_switch.txt; then 
+	curl https://pyenv.run | bash
+	echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+	echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+	echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.bashrc
+	#exec "$SHELL"
+	$HOME/.pyenv/bin/pyenv install 3.10.9
+	$HOME/.pyenv/bin/pyenv global 3.10.9
+	touch pyenv_test_switch.txt
+fi
+
+
 virtualenv -p python3 .
 source ./bin/activate
 
-pip install --require-hashes -r requirements.txt
+#pip install --require-hashes -r requirements.txt
+pip install -r requirements.in
 
-gdown --folder https://bit.ly/alphageometry
+#gdown --folder https://bit.ly/alphageometry
+links  https://drive.google.com/uc?id=1qXkmmgoJ8oTYJdFV1xw0xGPpQj6SyOYA
 DATA=ag_ckpt_vocab
 
 MELIAD_PATH=meliad_lib/meliad
+rm -rf $MELIAD_PATH
 mkdir -p $MELIAD_PATH
 git clone https://github.com/google-research/meliad $MELIAD_PATH
 export PYTHONPATH=$PYTHONPATH:$MELIAD_PATH
