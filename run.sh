@@ -32,14 +32,22 @@ if ! test -f pyenv_test_switch.txt; then
 fi
 
 
-virtualenv -p python3 .
-source ./bin/activate
+#virtualenv -p python3 .
+#source ./bin/activate
 
-#pip install --require-hashes -r requirements.txt
-pip install -r requirements.in
+#$python310="~/.pyenv/versions/3.10.9/bin"
+
+~/.pyenv/versions/3.10.9/bin/python3 --version
+~/.pyenv/versions/3.10.9/bin/python3 -m pip install --require-hashes -r requirements.txt
+#pip install -r requirements.in
+
+#python3 -m pip install absl-py
+#python3 -m pip install python3.10-tk
 
 #gdown --folder https://bit.ly/alphageometry
-links  https://drive.google.com/uc?id=1qXkmmgoJ8oTYJdFV1xw0xGPpQj6SyOYA
+if ! test -f checkpoint_10999999; then 
+	links  https://drive.google.com/uc?id=1qXkmmgoJ8oTYJdFV1xw0xGPpQj6SyOYA
+fi
 DATA=ag_ckpt_vocab
 
 MELIAD_PATH=meliad_lib/meliad
@@ -80,7 +88,7 @@ LM_ARGS=(
 
 echo $PYTHONPATH
 
-python -m alphageometry \
+~/.pyenv/versions/3.10.9/bin/python3 -m alphageometry \
 --alsologtostderr \
 --problems_file=$(pwd)/examples.txt \
 --problem_name=orthocenter \

@@ -368,7 +368,8 @@ editdistance==0.6.2 \
     #   seqio
     #   seqio-nightly
     #   t5
-etils[array-types,enp,epath,epy,etqdm,etree]==1.5.1 \
+#etils[array-types,enp,epath,epy,etqdm,etree]==1.5.1 \
+etils[epath]==1.5.1 \
     --hash=sha256:2c1bfa2817eb4881cb509097f1e65ac6160126ba74ec47b3bb47ee678628d8c8 \
     --hash=sha256:b530c0d1b2ed1b8da1af367d4b97891e680a6a4658d4190183210bbbb8cf1fb9
     # via
@@ -1779,7 +1780,9 @@ tensorflow-metadata==1.14.0 \
     # via
     #   tensorflow-datasets
     #   tfds-nightly
-tensorflow-text==2.13.0 \
+tensorflow-text==2.13.0rc0 \
+    --hash=sha256:2af7031654103ab4c8e89bc47375f5b2169d8085724af16d6a011b1592f022b5 \
+    --hash=sha256:405c0e3fdbbe78b7dc26fa3c4ecbf7c89b95b9b3dec5a09ea00a81742dfdba53 \
     --hash=sha256:142b35fc7f633250db2c4810e0e60eadc015292c7dde3fff6189213056f8fd7d \
     --hash=sha256:8af4379cfe8f454d3e8ad38627153e20d852a5ba10591b47c9dbb64490ae4f16 \
     --hash=sha256:94589df89c531f4c2c61029203c45d1f299f3204b47c3a1aa8ff636e7f58dadf \
